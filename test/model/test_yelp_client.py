@@ -8,7 +8,7 @@ from model.yelp_client import YelpClient
 
 class TestYelpClient(unittest.TestCase):
     
-    def test_fetch_businesses_integration(self):
+    def test_fetch_first_business_name_integration(self):
         client = YelpClient("../../yelp_auth.secret")
-        result = client.fetchBusinesses()
+        result = client.fetchFirstBusinessName()
         assert result == "Blue Bottle Coffee Co"
