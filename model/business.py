@@ -5,6 +5,7 @@ Created on Jul 3, 2016
 '''
 
 import json
+from model.yelp_client import YelpClient
 
 class Business(object):
     '''
@@ -36,3 +37,14 @@ class Business(object):
         listOfBusinesses = list(cls(yelpBusiness.name, yelpBusiness.location.coordinate.longitude, yelpBusiness.location.coordinate.latitude) for yelpBusiness in yelpBusinesses)
         
         return listOfBusinesses
+    
+    @classmethod
+    def getBusinessesList(cls, yelp_config_path = None):
+        yelpClient = YelpClient(yelp_config_path or "./yelp_auth.secret")
+        yelpCoffeeBusinesses = yelpClient.fetchCoffeeBusinesses()
+        businessList = Business.buildBusinessesListFromYelpObject(yelpCoffeeBusinesses)
+        
+        return Business.returnJSONOfBusinesses(businessList)
+        
+        
+        

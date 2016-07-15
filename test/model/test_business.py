@@ -33,4 +33,9 @@ class TestBusiness(unittest.TestCase):
         listOfBusinesses = Business.buildBusinessesListFromYelpObject(yelpBusinesses)
         
         assert (listOfBusinesses[0].businessName == "Blue Bottle Coffee Co")
+    
+    def test_get_businessses_list(self):
+        listOfBusinesses = Business.getBusinessesList("../../yelp_auth.secret")
+        
+        assert (listOfBusinesses[0].businessName == "Blue Bottle Coffee Co")
         
