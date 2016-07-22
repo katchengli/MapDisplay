@@ -14,7 +14,7 @@ def mapDisplay():
     #return results
     return send_from_directory('view', 'map.html')
 
-@app.route('/')
+@app.route('/coffeedata')
 def getCoffeeBusinesses():
     results = Business.getBusinessesList()
     return results

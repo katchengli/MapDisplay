@@ -35,7 +35,7 @@ class TestBusiness(unittest.TestCase):
         assert (listOfBusinesses[0].businessName == "Blue Bottle Coffee Co")
     
     def test_get_businessses_list(self):
-        listOfBusinesses = Business.getBusinessesList("../../yelp_auth.secret")
-        
-        assert (listOfBusinesses[0].businessName == "Blue Bottle Coffee Co")
+        listOfBusinessesJSON = Business.getBusinessesList("../../yelp_auth.secret")
+        listOfBusinesses = json.loads(listOfBusinessesJSON)
+        assert (listOfBusinesses[0]["businessName"] == "Blue Bottle Coffee Co")
         
